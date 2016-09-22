@@ -1,0 +1,7 @@
+*.aux
+*.log
+*.out
+*.swp
+*.gz
+src/PersonalData.tex
+*.me
