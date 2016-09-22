@@ -23,37 +23,56 @@
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
-%\input{./src/PersonalData.tex}
-\input{./src/DummyPersonalData.tex}
+\usepackage{fancyhdr}
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+
+\newcommand{\headrulecolor}[1]{\patchcmd{\headrule}{\hrule}{\color{#1}\hrule}{}{}}
+\newcommand{\myPhone}{(999)~999~9999}
+
+%\input{./src/DummyPersonalData.tex}
+\input{./src/PersonalData.tex}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
 %\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
 %-----       resume       ---------------------------------------------------------
+\pagestyle{empty}
 \makecvtitle
 
+\vspace{-0.3mm}
 \input{./src/Objective.tex}
 \input{./src/SummaryQualifications.tex}
 
 \vspace{0.6mm}
 \input{./src/WorkExperience.tex}
 
+% Incorporate custom header (with name, pg no.)into the page after WorkExperience section (most likely 2nd page)
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{\textcolor{black!60}{Addy Singh Arora}}
+\chead{\textcolor{black!60}{Page \thepage}}
+\rhead{\textcolor{black!60}{ \mobilephonesymbol{\myPhone} }} %myPhone is a variable defined by both DummyPersonalData.tex and PersonalData.tex
+\renewcommand{\headrulewidth}{0.1pt}
+\headrulecolor{gray!60}
+
 \vspace{0.6mm}
 \input{./src/Education.tex}
 
-\vspace{0.6mm}
-\input{./src/Coursework.tex}
-%\section{Extra 2}
-%\cvlistdoubleitem{Item 1}{Item 4}
-%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+%\vspace{0.6mm}
+%\input{./src/Coursework.tex}
 
-\vfill
+\vspace{10mm}
 \begin{center}
 	\small REFERENCES AVAILABLE UPON REQUEST
 \end{center}
 
+
+%--- COVER LETTER ---
+\clearpage
+\pagestyle{empty}
 \input{./src/CoverLetter.tex}
 
 \end{document}
