@@ -1,0 +1,8 @@
+#!/bin/sh
+#Script used by user command 'gitCommit' in TexStudio
+
+git citool
+
+if [ $? != 0 ]; then
+	echo "Commit Unsuccessful!"
+fi

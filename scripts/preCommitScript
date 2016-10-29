@@ -1,0 +1,6 @@
+#!/bin/sh
+#Script used by user command 'gitCommit' in TexStudio
+#ARGUMENTS:
+#	$1 = "<texfileName>.tex"
+
+perl -pi -e 's%\\input\{\./src/PersonalData\.tex}%\\input\{\./src/DummyPersonalData\.tex}%g' $1

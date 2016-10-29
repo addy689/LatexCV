@@ -1,0 +1,18 @@
+#!/bin/sh
+#Script used by user command 'copyToHost' in TexStudio 
+#ARGUMENTS passed to this script by TexStudio:
+#	$1 = "outputFiles/<texfileName>.pdf"
+#	$2 = "/mnt/hgfs/SharedWithVM/MyResume"
+
+#Check if target directory exists, and create it if it doesn't
+DIRECTORY=$2
+if [ ! -d "$DIRECTORY" ]; then
+	mkdir "$DIRECTORY"
+fi
+
+
+#split latex compiler's output pdf into 3 pdf files - Resume+CoverLetter, CoverLetterOnly and ResumeOnly, and transfer them to directory SharedWithVM that the VM Guest OS shares with VM Host OS
+
+pdftk $1 cat 3 1-2 output $DIRECTORY/ResumeAndCoverLetter_AddySinghArora.pdf
+pdftk $1 cat 1-2 output $DIRECTORY/Resume_AddySinghArora.pdf
+pdftk $1 cat 3 output $DIRECTORY/CoverLetter_AddySinghArora.pdf
