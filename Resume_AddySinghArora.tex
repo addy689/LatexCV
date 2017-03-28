@@ -26,6 +26,14 @@
 \usepackage{fancyhdr}
 
 \usepackage{etoolbox,fancyhdr,xcolor}
+%
+%\usepackage{needspace}
+%
+%\let\svitem\item
+%\def\item{\needspace{\baselineskip}\svitem}
+%\makeatletter
+%\newcommand\mynobreakpar{\vspace{\topsep}\nobreak\@afterheading}
+%\makeatother
 
 \newcommand{\headrulecolor}[1]{\patchcmd{\headrule}{\hrule}{\color{#1}\hrule}{}{}}
 \newcommand{\myPhone}{(999)~999~9999}
