@@ -16,3 +16,4 @@ fi
 pdftk $1 cat 3 1-2 output $DIRECTORY/ResumeAndCoverLetter_AddySinghArora.pdf
 pdftk $1 cat 1-2 output $DIRECTORY/Resume_AddySinghArora.pdf
 pdftk $1 cat 3 output $DIRECTORY/CoverLetter_AddySinghArora.pdf
+pdftk $1 cat 4 output $DIRECTORY/References_AddySinghArora.pdf
